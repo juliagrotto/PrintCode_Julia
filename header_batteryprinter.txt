@@ -1,0 +1,3 @@
+G21 (program in mm)
+G64 (default cutting mode)
+G94 (incremental programming)
