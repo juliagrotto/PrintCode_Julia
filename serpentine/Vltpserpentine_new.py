@@ -35,7 +35,7 @@ tipsize_out = 0.42  #tipsize for electrodes, separator; mm
 
 #variables that control s (VOLTAGE PARALLEL MUST BE LESS THAN VLTSRC/NUMLED)
 Vltp = 3.14 #Voltage parallel to LED
-SrcVlt = 12 #Source Voltage
+SrcVlt = 25 #Source Voltage
 numLED = 6 #total number of LED 
 l = 20 #the length of the long path in mm must be greater than print_structure_length
 a = 0.2 #between LED pathgap in mm
