@@ -71,7 +71,7 @@ def serpentine_vertical (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, 
         
         pressure_on()
         for i in range (numLED/2):
-            g.move(x=a+tipsize_in)
+            g.move(x=10)
             g.move(y=l)
             
             for i in range (number_of_meanders):
@@ -95,7 +95,7 @@ def serpentine_vertical (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, 
             g.move(y=+l)
             g.move(x=a+tipsize_in)
             g.move(y=-l)
-            
+        g.move(x = 10)    
         pressure_off()
         g.dwell(3)
                                                             
