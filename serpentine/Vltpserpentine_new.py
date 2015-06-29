@@ -70,8 +70,9 @@ def pressure_off ():
 def serpentine_vertical (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, l, s): #starts lower outer left, starts at absolute Z=0
         
         pressure_on()
+        g.move(x=10)
+        
         for i in range (numLED/2):
-            g.move(x=10)
             g.move(y=l)
             
             for i in range (number_of_meanders):
@@ -84,6 +85,8 @@ def serpentine_vertical (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, 
             g.move(y=-l)
             g.move(x=a+tipsize_in)
             g.move(y=l)
+            g.move(x=a+tipsize_in)
+            g.move(y=-l)
             
             for i in range (number_of_meanders):
                 g.move(x=LED_pathgap+tipsize_in)
@@ -95,6 +98,8 @@ def serpentine_vertical (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, 
             g.move(y=+l)
             g.move(x=a+tipsize_in)
             g.move(y=-l)
+            g.move(x=a+tipsize_in)
+            
         g.move(x = 10)    
         pressure_off()
         g.dwell(3)
@@ -102,6 +107,7 @@ def serpentine_vertical (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, 
 def serpentine_horizontal (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, l, s): #starts lower outer left, starts at absolute Z=0
     
         pressure_on()
+        g.move(x=10)
         for i in range (numLED/2):
             g.move(y=a+tipsize_in)
             g.move(x=l)
@@ -116,6 +122,8 @@ def serpentine_horizontal (LED_pathgap, a, tipsize_in, LED_width, z_step, layers
             g.move(x=-l)
             g.move(y=a+tipsize_in)
             g.move(x=l)
+            g.move(y=a+tipsize_in)
+            g.move(x=-l)
             
             for i in range (number_of_meanders):
                 g.move(y=LED_pathgap+tipsize_in)
@@ -127,6 +135,8 @@ def serpentine_horizontal (LED_pathgap, a, tipsize_in, LED_width, z_step, layers
             g.move(x=+l)
             g.move(y=a+tipsize_in)
             g.move(x=-l)
+            g.move(y=a+tipsize_in)
+            g.move(x=l)
             
         pressure_off()
         g.dwell(3)
