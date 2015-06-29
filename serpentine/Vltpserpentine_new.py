@@ -21,7 +21,7 @@ from mecode import G
 #Yellow 0.10 0.24
 
 #Define variables
-printvel = 240	#printvel; mm/min
+printvel = 4 #printvel; mm/s
 printlength = 20 #in mm
 
 LED_contact = 0.2 #in mm
