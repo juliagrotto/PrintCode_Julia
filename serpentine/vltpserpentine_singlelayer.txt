@@ -1,7 +1,4 @@
-G21 (program in mm)
-G64 (default cutting mode)
-G94 (incremental programming)
-
+DVAR $hFileDVAR $cCheckDVAR $pressDVAR $lengthDVAR $lameDVAR $comport
 G91
 G92 X0.000000 Y0.000000 Z0.000000
 G1 F4
@@ -11,8 +8,8 @@ G91
 G90
 G1 X1.200000
 G91
-M9000 P4 Q45
-M9001
+Call setPress P4 Q45
+togglePress P4
 G1 X10.000000
 G1 Y20.000000
 G1 X0.400000
@@ -75,5 +72,5 @@ G1 X0.400000
 G1 Y-20.000000
 G1 X0.400000
 G1 X10.000000
-M10000
+togglePress P4
 G4 P3

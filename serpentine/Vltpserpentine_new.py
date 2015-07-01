@@ -58,18 +58,16 @@ spacing_y = 5.0
 
 #Define function
 def pressure_set (port, press):
-    line = 'M9000 P{port} Q{press}'.format(port=port, press=press)
+    line = 'Call setPress P{port} Q{press}'.format(port=port, press=press)
     g.write(line)
 
-def pressure_on ():
-    g.write('M9001')
-
-def pressure_off ():
-    g.write('M10000')
+def pressure_toggle (port):
+    line = 'togglePress P{port}'.format(port=port)
+    g.write(line)
 
 def serpentine_vertical (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, l, s): #starts lower outer left, starts at absolute Z=0
         
-        pressure_on()
+        pressure_toggle(port)
         g.move(x=10)
         
         for i in range (numLED/2):
@@ -101,12 +99,12 @@ def serpentine_vertical (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, 
             g.move(x=a+tipsize_in)
             
         g.move(x = 10)    
-        pressure_off()
+        pressure_toggle(port)
         g.dwell(3)
                                                             
 def serpentine_horizontal (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, l, s): #starts lower outer left, starts at absolute Z=0
     
-        pressure_on()
+        pressure_toggle(port)
         g.move(x=10)
         for i in range (numLED/2):
             g.move(y=a+tipsize_in)
@@ -138,14 +136,14 @@ def serpentine_horizontal (LED_pathgap, a, tipsize_in, LED_width, z_step, layers
             g.move(y=a+tipsize_in)
             g.move(x=l)
             
-        pressure_off()
+        pressure_toggle(port)
         g.dwell(3)
                                                                     
 #file- singlelayer
 g = G(
-        outfile = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/serpentine/vltpserpentine_singlelayer.txt",
-        header = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/header_batteryprinter.txt",
-        footer = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/footer_batteryprinter.txt",
+        outfile ="/Users/juliagrotto/Documents/Github/PrintCode_Julia/serpentine/vltpserpentine_singlelayer.txt",
+        header = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/header.txt",
+        footer = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/footer.txt",
         aerotech_include = False,
         direct_write = False,
         print_lines = False, 
@@ -161,9 +159,9 @@ serpentine_vertical (LED_pathgap, a, tipsize_in, LED_width, z_step, layers, l, s
 
 #file- doublelayer
 g = G(
-        outfile = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/serpentine/vltpserpentine_doublelayer.txt",
-        header = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/header_batteryprinter.txt",
-        footer = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/footer_batteryprinter.txt",
+        outfile ="/Users/juliagrotto/Documents/Github/PrintCode_Julia/serpentine/vltpserpentine_doublelayer.txt",
+        header = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/header.txt",
+        footer = "/Users/juliagrotto/Documents/Github/PrintCode_Julia/footer.txt",
         aerotech_include = False,
         direct_write = False,
         print_lines = False, 

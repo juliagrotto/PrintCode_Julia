@@ -1,0 +1,1 @@
+DVAR $hFileDVAR $cCheckDVAR $pressDVAR $lengthDVAR $lameDVAR $comport
